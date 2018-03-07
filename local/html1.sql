@@ -77,7 +77,7 @@ CREATE TABLE `b_agent` (
   KEY `ix_act_next_exec` (`ACTIVE`,`NEXT_EXEC`),
   KEY `ix_agent_user_id` (`USER_ID`),
   KEY `ix_agent_name` (`NAME`(100))
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -895,7 +895,7 @@ CREATE TABLE `b_event_log` (
   PRIMARY KEY (`ID`),
   KEY `ix_b_event_log_time` (`TIMESTAMP_X`),
   KEY `ix_b_event_log_audit_type` (`AUDIT_TYPE_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5433,7 +5433,7 @@ CREATE TABLE `b_user_option` (
   `COMMON` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ux_user_category_name` (`USER_ID`,`CATEGORY`,`NAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
