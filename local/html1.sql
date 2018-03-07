@@ -77,7 +77,7 @@ CREATE TABLE `b_agent` (
   KEY `ix_act_next_exec` (`ACTIVE`,`NEXT_EXEC`),
   KEY `ix_agent_user_id` (`USER_ID`),
   KEY `ix_agent_name` (`NAME`(100))
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1031,7 +1031,7 @@ CREATE TABLE `b_file` (
   `EXTERNAL_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `IX_B_FILE_EXTERNAL_ID` (`EXTERNAL_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2272,7 +2272,7 @@ CREATE TABLE `b_iblock` (
   `ELEMENT_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ix_iblock` (`IBLOCK_TYPE_ID`,`LID`,`ACTIVE`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2336,7 +2336,7 @@ CREATE TABLE `b_iblock_element` (
   KEY `ix_iblock_element_4` (`IBLOCK_ID`,`XML_ID`,`WF_PARENT_ELEMENT_ID`),
   KEY `ix_iblock_element_3` (`WF_PARENT_ELEMENT_ID`),
   KEY `ix_iblock_element_code` (`IBLOCK_ID`,`CODE`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2374,6 +2374,43 @@ CREATE TABLE `b_iblock_element_lock` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `b_iblock_element_prop_m5`
+--
+
+DROP TABLE IF EXISTS `b_iblock_element_prop_m5`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `b_iblock_element_prop_m5` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IBLOCK_ELEMENT_ID` int(11) NOT NULL,
+  `IBLOCK_PROPERTY_ID` int(11) NOT NULL,
+  `VALUE` text COLLATE utf8_unicode_ci NOT NULL,
+  `VALUE_ENUM` int(11) DEFAULT NULL,
+  `VALUE_NUM` decimal(18,4) DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ix_iblock_elem_prop_m5_1` (`IBLOCK_ELEMENT_ID`,`IBLOCK_PROPERTY_ID`),
+  KEY `ix_iblock_elem_prop_m5_2` (`IBLOCK_PROPERTY_ID`),
+  KEY `ix_iblock_elem_prop_m5_3` (`VALUE_ENUM`,`IBLOCK_PROPERTY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `b_iblock_element_prop_s5`
+--
+
+DROP TABLE IF EXISTS `b_iblock_element_prop_s5`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `b_iblock_element_prop_s5` (
+  `IBLOCK_ELEMENT_ID` int(11) NOT NULL,
+  `PROPERTY_9` text COLLATE utf8_unicode_ci,
+  `PROPERTY_10` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`IBLOCK_ELEMENT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `b_iblock_element_property`
 --
 
@@ -2394,7 +2431,7 @@ CREATE TABLE `b_iblock_element_property` (
   KEY `ix_iblock_element_property_2` (`IBLOCK_PROPERTY_ID`),
   KEY `ix_iblock_element_prop_enum` (`VALUE_ENUM`,`IBLOCK_PROPERTY_ID`),
   KEY `ix_iblock_element_prop_num` (`VALUE_NUM`,`IBLOCK_PROPERTY_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2551,7 +2588,7 @@ CREATE TABLE `b_iblock_property` (
   KEY `ix_iblock_property_1` (`IBLOCK_ID`),
   KEY `ix_iblock_property_3` (`LINK_IBLOCK_ID`),
   KEY `ix_iblock_property_2` (`CODE`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3818,7 +3855,7 @@ CREATE TABLE `b_search_content` (
   UNIQUE KEY `UX_B_SEARCH_CONTENT` (`MODULE_ID`,`ITEM_ID`),
   KEY `IX_B_SEARCH_CONTENT_1` (`MODULE_ID`,`PARAM1`(50),`PARAM2`(50)),
   KEY `IX_B_SEARCH_CONTENT_2` (`ENTITY_ID`(50),`ENTITY_TYPE_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3994,7 +4031,7 @@ CREATE TABLE `b_search_stem` (
   `STEM` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `UX_B_SEARCH_STEM` (`STEM`)
-) ENGINE=InnoDB AUTO_INCREMENT=1268 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1298 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5433,7 +5470,7 @@ CREATE TABLE `b_user_option` (
   `COMMON` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ux_user_category_name` (`USER_ID`,`CATEGORY`,`NAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5818,7 +5855,7 @@ CREATE TABLE `b_xml_tree` (
   PRIMARY KEY (`ID`),
   KEY `ix_b_xml_tree_parent` (`PARENT_ID`),
   KEY `ix_b_xml_tree_left` (`LEFT_MARGIN`)
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
