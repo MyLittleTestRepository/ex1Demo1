@@ -5,3 +5,4 @@ ex1-6   52  03      98      add left and top menu
 ex1-13  09  04      108     import reviews
 ex1-14  72  05      180     add reviews section
 ex1-16  06  06      186     add search section
+ex1-5   01  07      187     set other template for services section
